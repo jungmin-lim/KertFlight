@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%@ page language="java" import="java.text.*, java.sql.*" %>
 <%
-    //    public static final String URL = "jdbc:oracle:thin:@155.230.52.58:16190:xe";
-//    public static final String USER_COMPANY = "kertflight";
-//    public static final String USER_PASSWD = "kertorkr";
+    String URL = "jdbc:oracle:thin:@155.230.52.58:16190:xe";
+    String USER_COMPANY = "kertflight";
+    String USER_PASSWD = "kertorkr";
 %>
 <html>
 <head>
@@ -26,8 +26,12 @@
         <input type="text" placeholder="여권번호 입력" name="passportID" id="passportID" required>
     </div>
     <div>
-        <label for="passengerName">탑승객 이름</label>
-        <input type="text" placeholder="탑승객 이름 입력" name="passengerName" id="passengerName" required>
+        <label for="passengerLastName">탑승객 성</label>
+        <input type="text" placeholder="탑승객 성 입력" name="passengerLastName" id="passengerLastName" required>
+    </div>
+    <div>
+        <label for="passengerFirstName">탑승객 이름</label>
+        <input type="text" placeholder="탑승객 이름 입력" name="passengerFirstName" id="passengerFirstName" required>
     </div>
     <div>
         <label for="phoneNumber">전화번호</label>
@@ -43,8 +47,12 @@
         <input type="text" placeholder="여권번호 입력" name="passportID" id="passportID2" required>
     </div>
     <div>
-        <label for="passengerName2">탑승객 이름</label>
-        <input type="text" placeholder="탑승객 이름 입력" name="passengerName" id="passengerName2" required>
+        <label for="passengerLastName2">탑승객 성</label>
+        <input type="text" placeholder="탑승객 성 입력" name="passengerLastName" id="passengerLastName2" required>
+    </div>
+    <div>
+        <label for="passengerFirstName2">탑승객 이름</label>
+        <input type="text" placeholder="탑승객 이름 입력" name="passengerFirstName" id="passengerFirstName2" required>
     </div>
     <div>
         <label for="departureDate">출발일</label>

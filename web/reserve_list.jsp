@@ -8,17 +8,19 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%@ page language="java" import="java.text.*, java.sql.*" %>
+<%@ page import="java.util.TimeZone" %>
 <%
     String URL = "jdbc:oracle:thin:@155.230.52.58:16190:xe";
     String USER_COMPANY = "kertflight";
     String USER_PASSWD = "kertorkr";
+    TimeZone timeZone = TimeZone.getTimeZone("Asia/Seoul");
+    TimeZone.setDefault(timeZone);
     Connection conn = null;
-    PreparedStatement preparedStatement;
-    ResultSet resultSet;
+    PreparedStatement pstmt;
+    ResultSet rs;
     Class.forName("oracle.jdbc.driver.OracleDriver");
     conn = DriverManager.getConnection(URL, USER_COMPANY, USER_PASSWD);
-    String sql;
-    ResultSetMetaData resultSetMetaData;
+    ResultSetMetaData rsmt;
     int cnt;
 %>
 <html>
@@ -29,38 +31,88 @@
 <h2>예약된 여정 리스트</h2>
 <%
     String passportID = request.getParameter("passportID");
-    String passengerName = request.getParameter("passengerName");
+    String passengerLastName = request.getParameter("passengerLastName");
+    String passengerFirstName = request.getParameter("passengerFirstName");
     String phoneNumber = request.getParameter("phoneNumber");
 
-    sql = "select * from (select * from ticket t where t.tcpassport = '6090JYGV11283') join customer c on tcpassport=c.cpassport_number where 'Alberta'=c.cfirst_name and 'Cowie'=c.clast_name and c.cphone_number='010-3183-2123'";
-    preparedStatement = conn.prepareStatement(sql);
-    resultSet = preparedStatement.executeQuery();
 
-
+    String sql = "select ticket_number, price, tfnum flight_number, tsid seat_id, departure_time, arrival_time, departure_airport, arrival_airport " +
+            "from (ticket t join flight f on t.tfnum = f.flight_number) join customer c on t.tcpassport = c.cpassport_number " +
+            "where c.cpassport_number = '" + passportID + "' " +
+            "and c.cfirst_name = '" + passengerFirstName + "' " +
+            "and c.clast_name = '" + passengerLastName + "' " +
+            "and c.cphone_number = '" + phoneNumber + "' " +
+            "order by f.departure_time";
+    try {
+        pstmt = conn.prepareStatement(sql);
+        rs = pstmt.executeQuery();
+        while (rs.next()) {
+            String ticket_number = rs.getString(1);
+            int price = rs.getInt(2);
+            String flight_number = rs.getString(3);
+            String seat_id = rs.getString(4);
+            String departure_time = rs.getString(5);
+            String arrival_time = rs.getString(6);
+            String departure_airport = rs.getString(7);
+            String arrival_airport = rs.getString(8);
+            out.println(String.format("<div>\n" +
+                    "    <p>\n" +
+                    "        <strong>티켓번호</strong>\n" +
+                    "        <span>%s</span>\n" +
+                    "    </p>\n" +
+                    "    <p>\n" +
+                    "        <strong>티켓 가격</strong>\n" +
+                    "        <span>%d 달러</span>\n" +
+                    "    </p>\n" +
+                    "    <p>\n" +
+                    "        <strong>편명</strong>\n" +
+                    "        <span>%s</span>\n" +
+                    "    </p>\n" +
+                    "    <p>\n" +
+                    "        <strong>좌석번호</strong>\n" +
+                    "        <span>%s</span>\n" +
+                    "    </p>\n" +
+                    "    <p>\n" +
+                    "        <strong>출발</strong>\n" +
+                    "        <span>%s(%s)</span>\n" +
+                    "    </p>\n" +
+                    "    <p>\n" +
+                    "        <strong>도착</strong>\n" +
+                    "        <span>%s(%s)</span>\n" +
+                    "    </p>\n" +
+                    "</div>", ticket_number, price, flight_number, seat_id, departure_airport, departure_time, arrival_airport, arrival_time));
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
 %>
 
-<div>
-    <p>
-        <strong>예약일</strong>
-        <span>2020-07-30</span>
-    </p>
-    <p>
-        <strong>예약번호</strong>
-        <span>1234</span>
-    </p>
-    <p>
-        <strong>출발지</strong>
-        <span>대구</span>
-    </p>
-    <p>
-        <strong>도착지</strong>
-        <span>서울</span>
-    </p>
-    <p>
-        <strong>탑승자명</strong>
-        <span>김도현</span>
-    </p>
-</div>
+<%--<div>--%>
+<%--    <p>--%>
+<%--        <strong>티켓번호</strong>--%>
+<%--        <span></span>--%>
+<%--    </p>--%>
+<%--    <p>--%>
+<%--        <strong>티켓 가격</strong>--%>
+<%--        <span></span>--%>
+<%--    </p>--%>
+<%--    <p>--%>
+<%--        <strong>편명</strong>--%>
+<%--        <span></span>--%>
+<%--    </p>--%>
+<%--    <p>--%>
+<%--        <strong>좌석번호</strong>--%>
+<%--        <span></span>--%>
+<%--    </p>--%>
+<%--    <p>--%>
+<%--        <strong>출발</strong>--%>
+<%--        <span></span>--%>
+<%--    </p>--%>
+<%--    <p>--%>
+<%--        <strong>도착</strong>--%>
+<%--        <span></span>--%>
+<%--    </p>--%>
+<%--</div>--%>
 
 </body>
 </html>
