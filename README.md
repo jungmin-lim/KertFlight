@@ -9,6 +9,5 @@
 3. ``` docker run --rm -it -p 8888:8080 kertflight ```
 4. Visit http://localhost:8888 to see if project is running!
 
-
 **References**
 - Background image: https://freeimages.com/photographer/smrcoun-47189
