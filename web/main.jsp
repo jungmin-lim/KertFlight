@@ -5,11 +5,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Welcome to KertFlight</title>
+    <meta charset="EUC-KR">
+    <title>Welcome to KertFlight</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style.css">
 </head>
 <body>
-    <h2>KertFlight</h2>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">KertFlight</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">BOOK</a></li>
+                    <li><a href="#">AIRPORT</a></li>
+                    <li><a href="#">IN-FLIGHT</a></li>
+                </ul>
+            </div>
+        </div>
     <%
         // Database connection
         String serverIP = "155.230.52.58";
@@ -30,13 +43,13 @@
             conn = DriverManager.getConnection(url, user, pass);
         } catch(ClassNotFoundException e) {
             e.printStackTrace();
-            out.println("Class not found");
+            out.println("alert(\"Oracle Driver Class not found\")");
         } catch(SQLException e) {
             e.printStackTrace();
-            out.println("SQL Error");
-        } finally {
-            out.println("connected!");
+            out.println("alert(\"DBMS Connection Error\")");
         }
     %>
+
+    </div>
 </body>
 </html>
