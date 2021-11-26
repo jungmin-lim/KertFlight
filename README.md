@@ -11,3 +11,6 @@
 
 **References**
 - Background image: https://freeimages.com/photographer/smrcoun-47189
+-detail_style.css reference : 
+	https://youtu.be/_c6hkIo4LxA
+	https://youtu.be/Oy9K7iz3aa4
