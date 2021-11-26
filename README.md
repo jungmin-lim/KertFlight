@@ -14,3 +14,5 @@
 -detail_style.css reference : 
 	https://youtu.be/_c6hkIo4LxA
 	https://youtu.be/Oy9K7iz3aa4
+-reserve_style.css reference :
+	https://youtu.be/eeHqZeJ9Vqc
