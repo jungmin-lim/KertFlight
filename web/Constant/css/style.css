@@ -1,0 +1,349 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(../image/background.jpg) no-repeat;
+    background-position: center;
+    height: 109vh;
+}
+
+.navbar{
+    width: 1200px;
+    height: 75px;
+    margin: auto;
+}
+
+.icon{
+    width: 200px;
+    float: left;
+    height: 70px;
+}
+
+.logo a{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 35px;
+    font-family: Arial;
+    padding-left: 20px;
+    float:left;
+    padding-top: 10px;
+}
+
+.menu{
+    width: 800px;
+    float: left;
+    height: 70px;
+}
+
+ul{
+    float: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+ul li{
+    list-style: none;
+    margin-left: 200px;
+    margin-top: 27px;
+    font-size: 16px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover{
+    color: #D3D3D3;
+}
+
+.content{
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    color: #FFFFFF;
+    position: relative;
+}
+
+.content .par{
+    padding-left: 20px;
+    padding-bottom: 50px;
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+    font-size:25px;
+}
+
+.content h1{
+    font-family: 'Times New Roman';
+    font-size: 40px;
+    padding-left: 20px;
+    margin-top: 9%;
+    letter-spacing: 2px;
+}
+
+.form{
+    width: 1100px;
+    height: 40px;
+    margin: auto;
+    background: linear-gradient(to top, rgba(255,255,255,0.3)50%, rgba(255,255,255,0.3)30%);
+    position: relative;
+    border-radius: 10px;
+    padding: 50px;
+    align-items:center;
+}
+
+.dept-select-box {
+    position: relative;
+    float: left;
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+  
+.dept-select-box .dept-options-container {
+    background: #2f3640;
+    color: #f5f6fa;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 8px;
+    overflow: hidden;
+  
+    order: 1;
+}
+  
+.dept-selected {
+    background: #2f3640;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    color: #f5f6fa;
+    position: relative;
+  
+    order: 0;
+}
+  
+.dept-selected::after {
+    content: "";
+    background: url("../image/arrow-down.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+  
+    position: absolute;
+    height: 100%;
+    width: 32px;
+    right: 10px;
+    top: 5px;
+  
+    transition: all 0.4s;
+}
+  
+.dept-select-box .dept-options-container.active {
+    max-height: 240px;
+    opacity: 1;
+    overflow-y: scroll;
+    margin-top: 54px;
+}
+  
+.dept-select-box .dept-options-container.active + .dept-selected::after {
+    transform: rotateX(180deg);
+    top: -6px;
+}
+  
+.dept-select-box .dept-options-container::-webkit-scrollbar {
+    width: 8px;
+    background: #0d141f;
+    border-radius: 0 8px 8px 0;
+}
+  
+.dept-select-box .dept-options-container::-webkit-scrollbar-thumb {
+    background: #525861;
+    border-radius: 0 8px 8px 0;
+}
+  
+.dept-select-box .dept-option,
+.dept-selected {
+    padding: 12px 24px;
+    cursor: pointer;
+}
+  
+.dept-select-box .dept-option:hover {
+    background: #414b57;
+}
+  
+.dept-select-box label {
+    cursor: pointer;
+}
+  
+.dept-select-box .dept-option .dept-radio {
+    display: none;
+}
+  
+/* Searchbox */
+  
+.dept-search-box input {
+    width: 100%;
+    padding: 12px 16px;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    position: absolute;
+    border-radius: 8px 8px 0 0;
+    z-index: 100;
+    border: 8px solid #2f3640;
+  
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s;
+}
+  
+.dept-search-box input:focus {
+    outline: none;
+}
+  
+.dept-select-box .dept-options-container.active ~ .dept-search-box input {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.arriv-select-box {
+    position: relative;
+    float: left;
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+  
+.arriv-select-box .arriv-options-container {
+    background: #2f3640;
+    color: #f5f6fa;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 8px;
+    overflow: hidden;
+  
+    order: 1;
+}
+  
+.arriv-selected {
+    background: #2f3640;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    color: #f5f6fa;
+    position: relative;
+  
+    order: 0;
+}
+  
+.arriv-selected::after {
+    content: "";
+    background: url("../image/arrow-down.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+  
+    position: absolute;
+    height: 100%;
+    width: 32px;
+    right: 10px;
+    top: 5px;
+  
+    transition: all 0.4s;
+}
+  
+.arriv-select-box .arriv-options-container.active {
+    max-height: 240px;
+    opacity: 1;
+    overflow-y: scroll;
+    margin-top: 54px;
+}
+  
+.arriv-select-box .arriv-options-container.active + .arriv-selected::after {
+    transform: rotateX(180deg);
+    top: -6px;
+}
+  
+.arriv-select-box .arriv-options-container::-webkit-scrollbar {
+    width: 8px;
+    background: #0d141f;
+    border-radius: 0 8px 8px 0;
+}
+  
+.arriv-select-box .arriv-options-container::-webkit-scrollbar-thumb {
+    background: #525861;
+    border-radius: 0 8px 8px 0;
+}
+  
+.arriv-select-box .arriv-option,
+.arriv-selected {
+    padding: 12px 24px;
+    cursor: pointer;
+}
+  
+.arriv-select-box .arriv-option:hover {
+    background: #414b57;
+}
+  
+.arriv-select-box label {
+    cursor: pointer;
+}
+  
+.arriv-select-box .arriv-option .arriv-radio {
+    display: none;
+}
+  
+/* Searchbox */
+  
+.arriv-search-box input {
+    width: 100%;
+    padding: 12px 16px;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    position: absolute;
+    border-radius: 8px 8px 0 0;
+    z-index: 100;
+    border: 8px solid #2f3640;
+  
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s;
+}
+  
+.arriv-search-box input:focus {
+    outline: none;
+}
+  
+.arriv-select-box .arriv-options-container.active ~ .arriv-search-box input {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.date-select-box {
+    position: relative;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    height: 38px;
+    background: #2f3640; 
+    color: #f5f6fa; 
+    font-size:16px; 
+    height:42px; 
+    border-radius:8px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right:10px;
+}

@@ -11,3 +11,4 @@
 
 **References**
 - Background image: https://freeimages.com/photographer/smrcoun-47189
+- Search box: https://github.com/Godsont/Custom-Select-Box-with-Search
