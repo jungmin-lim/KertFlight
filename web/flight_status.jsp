@@ -5,16 +5,16 @@
 <head>
     <meta charset="UTF-8">
     <title>COMP322: Databases</title>
-    <link rel="stylesheet" href="detail_style.css">
+    <link rel="stylesheet" href="{pageContext.request.contextPath}/Constant/css/detail_style.css">
 </head>
 <body>
 <h4>info</h4>
 <%
-    String serverIP = "127.0.0.1";
-    String strSID = "orcl";
-    String portNum = "1521";
-    String user = "kertairline";
-    String pass = "123";
+    String serverIP = "155.230.52.58";
+    String strSID = "xe";
+    String portNum = "16190";
+    String user = "kertflight";
+    String pass = "kertorkr";
     String url = "jdbc:oracle:thin:@" + serverIP + ":" + portNum + ":" + strSID;
     Connection conn = null;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
