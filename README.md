@@ -12,8 +12,8 @@
 **References**
 - Background image: https://freeimages.com/photographer/smrcoun-47189
 - Search box: https://github.com/Godsont/Custom-Select-Box-with-Search
--detail_style.css reference : 
+- detail_style.css reference : 
 	https://youtu.be/_c6hkIo4LxA
 	https://youtu.be/Oy9K7iz3aa4
--reserve_style.css reference :
+- reserve_style.css reference :
 	https://youtu.be/eeHqZeJ9Vqc
