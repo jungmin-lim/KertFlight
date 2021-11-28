@@ -7,7 +7,7 @@
 <head>
     <meta charset="EUC-KR">
     <title>Welcome to KertFlight</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Constant/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Constant/css/flight.css">
 </head>
 
 <body>
@@ -41,7 +41,7 @@
     <div class="main">
         <div class="navbar">
             <div class="icon">
-                <h2 class="logo"><a href="${pageContext.request.contextPath}/main.jsp">KertFlight</h2>
+                <h2 class="logo"><a href="${pageContext.request.contextPath}/main.jsp">KertFlight</a></h2>
             </div>
             <div class="menu">
                 <ul>
@@ -52,13 +52,66 @@
             </div>
         </div>
         <div class="content">
-            <h1>Korea No.1 University<br>Database Management Systems</h1>
-            <p class="par"><br>Team 2: KertFlight<br>Phase 4 - DB Website Construction</p>
-            
+            <table>
+                <thead>
+                    <th>Flight Num.</th>
+                    <th>Departure Airport</th>
+                    <th>Arrival Airport</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                    <th>Plane Model</th>
+                    <th>BOOK</th>
+                </thead>
+                <%
+                    String deptAirport = request.getParameter("deptA");
+                    String arrivAirport = request.getParameter("arrivA");
+                    String deptDate = request.getParameter("deptdate");
+                    Boolean flag = false;
+
+                    if((deptAirport == null) || (arrivAirport == null) || (deptDate == null)) {
+                        flag = false;
+                    }
+                    else {
+                        flag = true;
+                    }
+
+                    if (flag) {
+                        
+
+                        sql = "SELECT Flight_number, Departure_airport, Arrival_airport, Departure_time, Arrival_time, Model_name " +
+                        "   FROM FLIGHT, PLANE " + 
+                        "   WHERE FLIGHT.Fpid = PLANE.Plane_id " +
+                        "   AND FLIGHT.Arrival_airport = \'" + arrivAirport + "\' " +
+                        "   AND FLIGHT.Departure_airport = \'" + deptAirport + "\' " +
+                        "   AND to_char(FLIGHT.Departure_time, \'YYYY-MM-DD\') = \'" + deptDate +"\'";
+
+                        pstmt = conn.prepareStatement(sql);
+                        rs = pstmt.executeQuery();
+                        while(rs.next()) {
+                            String flightNumber = rs.getString(1);
+                            String departureAirport = rs.getString(2);
+                            String arrivalAirport = rs.getString(3);
+                            String departureTime = rs.getString(4);
+                            String arrivalTime = rs.getString(5);
+                            String modelName = rs.getString(6);
+
+                            out.println("<tr>");
+                            out.println("<td>" + flightNumber + "</td>");
+                            out.println("<td>" + departureAirport + "</td>");
+                            out.println("<td>" + arrivalAirport + "</td>");
+                            out.println("<td>" + departureTime + "</td>");
+                            out.println("<td>" + arrivalTime + "</td>");
+                            out.println("<td>" + modelName + "</td>");
+                            out.println("<td><button class=\"btn\" onclick=\"location.href=\'ticket.jsp?flightNumber=" + flightNumber + "\'\">Book</button></td>");
+                            out.println("</tr>");
+                        }
+                    }
+                %>
+            </table>
         </div>
         <div class="form">
-            <%
-                sql = "SELECT airport_code, airport_name " +
+            <% 
+               sql = "SELECT airport_code, airport_name " +
                 "   FROM AIRPORT " +
                 "   ORDER BY airport_code";
 
@@ -112,9 +165,8 @@
                 out.println("<input type=submit value=\"search\"></input>");
                 out.println("</div>");
 
-                out.println("</FORM>");
+                out.println("</FORM>");           
             %>
         </div>
     </div>
 </body>
-</html>
