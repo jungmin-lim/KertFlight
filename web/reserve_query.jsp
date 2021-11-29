@@ -70,7 +70,7 @@
     rs.close();
     pstmt.close();
     conn.close();
-    response.sendRedirect("/KertAirline/main.jsp");
+    response.sendRedirect("/main.jsp");
 %>
 </body>
 </html>
