@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>COMP322: Databases</title>
-    <link rel="stylesheet" href="{pageContext.request.contextPath}/Constant/css/detail_style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Constant/css/detail_style.css">
 </head>
 <body>
 <h4>info</h4>
