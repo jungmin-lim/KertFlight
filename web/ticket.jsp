@@ -77,7 +77,8 @@
                         "   WHERE TICKET.Tpid = SEAT.Spid " +
                         "   AND TICKET.Tsid = SEAT.Seat_id " + 
                         "   AND TICKET.Tfnum = \'" + flightNumber + "\' " +
-                        "   ORDER BY Price";
+                        "   AND TICKET.Tcpassport IS NULL " +
+                        "   ORDER BY Ticket_number";
 
                         pstmt = conn.prepareStatement(sql);
                         rs = pstmt.executeQuery();
@@ -119,47 +120,54 @@
                             }
                         }
 
-                        out.println("<FORM ACTION=\"reserve.jsp\" METHOD=GET>");
-                        out.println("<tr>");
-                        out.println("<td>" + flightNumber + "</td>");
-                        out.println("<td><select name=\"TicketNumber\">");
-                        for(int idx = 0; idx < firstClassTicketNumberList.size(); ++idx) {
-                            out.println("<option value=\"" + firstClassTicketNumberList.get(idx) + "\">" + firstClassSeatIDList.get(idx) + "</option>");
+                        if(firstClassTicketNumberList.size() > 0) {
+                            out.println("<FORM ACTION=\"reserve.jsp\" METHOD=GET>");
+                            out.println("<tr>");
+                            out.println("<td>" + flightNumber + "</td>");
+                            out.println("<td><select name=\"TicketNumber\">");
+                            for(int idx = 0; idx < firstClassTicketNumberList.size(); ++idx) {
+                                out.println("<option value=\"" + firstClassTicketNumberList.get(idx) + "\">" + firstClassSeatIDList.get(idx) + "</option>");
+                            }
+                            out.println("</select></td>");
+                            out.println("<td>" + firstClassPrice + "</td>");
+                            out.println("<td>First</td>");
+                            out.println("<td><input type=submit class=\"btn\" value=\"BOOK\"></input></td>");
+                            out.println("</tr>");
+                            out.println("</FORM>");
                         }
-                        out.println("</select></td>");
-                        out.println("<td>" + firstClassPrice + "</td>");
-                        out.println("<td>First</td>");
-                        out.println("<td><input type=submit class=\"btn\" value=\"BOOK\"></input></td>");
-                        out.println("</tr>");
-                        out.println("</FORM>");
 
-                        out.println("<FORM ACTION=\"reserve.jsp\" METHOD=GET>");
-                        out.println("<tr>");
-                        out.println("<td>" + flightNumber + "</td>");
-                        out.println("<td><select name=\"TicketNumber\">");
-                        for(int idx = 0; idx < businessClassTicketNumberList.size(); ++idx) {
-                            out.println("<option value=\"" + businessClassTicketNumberList.get(idx) + "\">" + businessClassSeatIDList.get(idx) + "</option>");
+                        if(businessClassTicketNumberList.size() > 0) {
+                            out.println("<FORM ACTION=\"reserve.jsp\" METHOD=GET>");
+                            out.println("<tr>");
+                            out.println("<td>" + flightNumber + "</td>");
+                            out.println("<td><select name=\"TicketNumber\">");
+                            for(int idx = 0; idx < businessClassTicketNumberList.size(); ++idx) {
+                                out.println("<option value=\"" + businessClassTicketNumberList.get(idx) + "\">" + businessClassSeatIDList.get(idx) + "</option>");
+                            }
+                            out.println("</select></td>");
+                            out.println("<td>" + businessClassPrice + "</td>");
+                            out.println("<td>Business</td>");
+                            out.println("<td><input type=submit class=\"btn\" value=\"BOOK\"></input></td>");
+                            out.println("</tr>");
+                            out.println("</FORM>");
                         }
-                        out.println("</select></td>");
-                        out.println("<td>" + businessClassPrice + "</td>");
-                        out.println("<td>Business</td>");
-                        out.println("<td><input type=submit class=\"btn\" value=\"BOOK\"></input></td>");
-                        out.println("</tr>");
-                        out.println("</FORM>");
 
-                        out.println("<FORM ACTION=\"reserve.jsp\" METHOD=GET>");
-                        out.println("<tr>");
-                        out.println("<td>" + flightNumber + "</td>");
-                        out.println("<td><select name=\"TicketNumber\">");
-                        for(int idx = 0; idx < economyClassTicketNumberList.size(); ++idx) {
-                            out.println("<option value=\"" + economyClassTicketNumberList.get(idx) + "\">" + economyClassSeatIDList.get(idx) + "</option>");
+                        if(economyClassTicketNumberList.size() > 0) {
+                            out.println("<FORM ACTION=\"reserve.jsp\" METHOD=GET>");
+                            out.println("<tr>");
+                            out.println("<td>" + flightNumber + "</td>");
+                            out.println("<td><select name=\"TicketNumber\">");
+                            for(int idx = 0; idx < economyClassTicketNumberList.size(); ++idx) {
+                                out.println("<option value=\"" + economyClassTicketNumberList.get(idx) + "\">" + economyClassSeatIDList.get(idx) + "</option>");
+                            }
+                            out.println("</select></td>");
+                            out.println("<td>" + economyClassPrice + "</td>");
+                            out.println("<td>Economy</td>");
+                            out.println("<td><input type=submit class=\"btn\" value=\"BOOK\"></input></td>");
+                            out.println("</tr>");
+                            out.println("</FORM>");
                         }
-                        out.println("</select></td>");
-                        out.println("<td>" + economyClassPrice + "</td>");
-                        out.println("<td>Economy</td>");
-                        out.println("<td><input type=submit class=\"btn\" value=\"BOOK\"></input></td>");
-                        out.println("</tr>");
-                        out.println("</FORM>");
+
                     }
                 %>
             </table>
