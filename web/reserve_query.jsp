@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page language="java" import="java.text.*, java.sql.*" %>
+<%@ page language="java" import="java.text.*, java.util.TimeZone, java.sql.*" %>
 
 <html>
 <head>
@@ -18,6 +18,8 @@
     PreparedStatement pstmt;
     ResultSet rs=null;
     try {
+        TimeZone timeZone = TimeZone.getTimeZone("Asia/Seoul");
+        TimeZone.setDefault(timeZone);
         Class.forName("oracle.jdbc.driver.OracleDriver");
     } catch (ClassNotFoundException e) {
         e.printStackTrace();
