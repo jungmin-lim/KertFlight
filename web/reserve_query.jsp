@@ -8,11 +8,11 @@
 </head>
 <body>
 <%
-    String serverIP = "127.0.0.1";
-    String strSID = "orcl";
-    String portNum = "1521";
-    String user = "kertairline";
-    String pass = "123";
+    String serverIP = "155.230.52.58";
+    String strSID = "xe";
+    String portNum = "16190";
+    String user = "kertflight";
+    String pass = "kertorkr";
     String url = "jdbc:oracle:thin:@" + serverIP + ":" + portNum + ":" + strSID;
     Connection conn = null;
     PreparedStatement pstmt;
