@@ -46,19 +46,28 @@
         System.exit(1);
     }
 
-
-    query = "insert into customer values ('"+ request.getParameter("Passportnumber") + "', '"+ request.getParameter("First_name") + "', '"+ request.getParameter("Last_name") + "', '"+ request.getParameter("Country")+ "', TO_DATE('"+ request.getParameter("Birth_date") + "','yyyy-MM-dd'), '"+ request.getParameter("Gender") + "', '"+request.getParameter("phone_number")+"') " ;
+    query = "SELECT * " +
+            "FROM CUSTOMER " +
+            "WHERE cpassport_number = '" + request.getParameter("Passportnumber") +"' ";
     pstmt = conn.prepareStatement(query);
 
-    try {
-        rs = pstmt.executeQuery();
-        if(!rs.next()) {
-            System.err.println("Ticket info match fails");
+    rs = pstmt.executeQuery();
+    if(!rs.next()) {
+        query = "insert into customer values ('"+ request.getParameter("Passportnumber") + "', '"+ request.getParameter("First_name") + "', '"+ request.getParameter("Last_name") + "', '"+ request.getParameter("Country")+ "', TO_DATE('"+ request.getParameter("Birth_date") + "','yyyy-MM-dd'), '"+ request.getParameter("Gender") + "', '"+request.getParameter("phone_number")+"') " ;
+        pstmt = conn.prepareStatement(query);
+
+        try {
+            rs = pstmt.executeQuery();
+            if(!rs.next()) {
+                System.err.println("Ticket info match fails");
+            }
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+            System.exit(1);
         }
-    } catch (SQLException exception) {
-        exception.printStackTrace();
-        System.exit(1);
     }
+
+
     query = "update ticket set tcpassport = ' "+request.getParameter("Passportnumber")+" ' where Ticket_number=' "+request.getParameter("TicketNumber")+" '" ;
     try {
         rs = pstmt.executeQuery(query );
