@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0)50%, rgba(0,0,0,0)50%);
+    background-position: center;
+    height: 109vh;
+}
+
+.navbar{
+    width: 1200px;
+    height: 75px;
+    margin:auto;
+}
+
+.icon{
+    width: 200px;
+    float: left;
+    height: 70px;
+}
+
+.logo a{
+    text-decoration: none;
+    color: #000000;
+    font-size: 35px;
+    font-family: Arial;
+    padding-left: 20px;
+    float:left;
+    padding-top: 10px;
+}
+
+.menu{
+    width: 800px;
+    float: left;
+    height: 70px;
+}
+
+ul{
+    float: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li{
+    list-style: none;
+    margin-left: 200px;
+    margin-top: 27px;
+    font-size: 16px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #000000;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover{
+    color: #D3D3D3;
+}
+
+.content{
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    margin-top: 50px;
+    position: relative;
+}
+
+
+
+
+table {
+    border-collapse: collapse;
+    box-shadow: 0 5px 10px #e1e5ee;
+    background-color: white;
+    text-align: left;
+    overflow: hidden;
+}
+
+thead {
+    box-shadow: 0 5px 10px #e1e5ee;
+}
+
+th {
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.7rem;
+    font-weight: 900;
+}
+
+td {
+    padding: 1rem 2rem;
+}
+tr:nth-child(even) {
+    background-color: #f4f6fb;
+}
+
+
+
+
+.btn{
+    margin: 0 auto;
+    outline:none;
+    display: block;
+    border: 0;
+    font-size: 16px;
+    line-height: 1;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    background: red;
+    color: #f9fbff;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.btn:hover,
+.btn:focus{
+    background: #D21C1C ;
+}
+
+.btn:active{
+    background: #AA1616 ;
+}

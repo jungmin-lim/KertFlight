@@ -26,25 +26,24 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Constant/css/style.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/Constant/css/detail_style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Constant/css/reserve_list.css">
 </head>
-<body>
+<body class="main">
 <div>
     <div class="navbar">
         <div class="icon">
-            <h2 class="logo"><a href="#">KertFlight</a></h2>
+            <h2 class="logo"><a href="${pageContext.request.contextPath}/main.jsp">KertFlight</a></h2>
         </div>
         <div class="menu">
             <ul>
-                <li><a href="#">BOOK</a></li>
-                <li><a href="#">AIRPORT</a></li>
-                <li><a href="#">IN-FLIGHT</a></li>
+                <li><a href="${pageContext.request.contextPath}/flight.jsp">BOOK</a></li>
+                <li><a href="${pageContext.request.contextPath}/reserve_lookup.jsp">TICKETS</a></li>
+                <li><a href="${pageContext.request.contextPath}/flight_status.jsp">IN-FLIGHT</a></li>
             </ul>
         </div>
     </div>
-
-    <h3>예약된 티켓 리스트<br><span style="color:#6A6A6A">(Reserved Ticket List)</span></h3>
+    <div class="content">
+    <h2>예약된 티켓 리스트<br><span style="color:#6A6A6A">(Reserved Ticket List)</span></h2>
 
     <table>
         <thead>
@@ -86,14 +85,14 @@
                     String onClickStr = String.format("location.href=\"reserve_detail.jsp?ticketNumber=%s&passengerFirstName=%s&passengerLastName=%s&departureDate=%s\"", ticket_number, passengerFirstName, passengerLastName, departure_time.substring(0, 10));
 
                     out.println(String.format("      <tr>\n" +
-                          "<td>%s</td>\n" +
-                          "<td>$%d</td>\n" +
-                          "<td>%s</td>\n" +
-                          "<td>%s</td>\n" +
-                          "<td>%s<br>%s</td>\n" +
-                          "<td>%s<br>%s</td>\n" +
-                          "<td><button class=\"btn\" onclick="+onClickStr+">상세보기<br><span>(details)</span></button></td>\n" +
-                          "</tr>", ticket_number, price, flight_number, seat_id, departure_airport, departure_time, arrival_airport, arrival_time));
+                                              "<td>%s</td>\n" +
+                                              "<td>$%d</td>\n" +
+                                              "<td>%s</td>\n" +
+                                              "<td>%s</td>\n" +
+                                              "<td>%s<br>%s</td>\n" +
+                                              "<td>%s<br>%s</td>\n" +
+                                              "<td><button class=\"btn\" onclick=" + onClickStr + "><span>details</span></button></td>\n" +
+                                              "</tr>", ticket_number, price, flight_number, seat_id, departure_airport, departure_time, arrival_airport, arrival_time));
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -121,7 +120,7 @@
     <%--            <td><button class="btn" onclick="">상세보기<br><span>(details)</span></button></td>--%>
     <%--        </tr>--%>
     <%--    </table>--%>
-
+    </div>
 </div>
 </body>
 </html>
