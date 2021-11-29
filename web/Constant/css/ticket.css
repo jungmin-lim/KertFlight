@@ -73,6 +73,7 @@ ul li a:hover{
 }
 
 table {
+    width: 1200px;
     border-collapse: collapse;
     box-shadow: 0 5px 10px #e1e5ee;
     background-color: white;
@@ -82,10 +83,12 @@ table {
 
 thead {
     box-shadow: 0 5px 10px #e1e5ee;
+    width: 100%;
     text-align: center;
 }
 
 th {
+    text-align: center;
     padding: 1rem 2rem;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
@@ -94,6 +97,8 @@ th {
 }
 
 td {
+    text-align: center;
+    width: 20%;
     padding: 1rem 2rem;
 }
 
@@ -102,6 +107,7 @@ tr:nth-child(even) {
 }
 
 .btn{
+    margin: 0 auto;
     outline:none;
     display: block;
     border: 0;
