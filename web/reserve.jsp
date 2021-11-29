@@ -16,7 +16,9 @@
 <body>
 <div class="center">
     <h1>티켓예매<span style="color:#6A6A6A">(Reserve ticket)</span></h1>
-    <form action="reserve_query.jsp?Tnum=<%=tnum%>" method="post">
+
+    <form action="reserve_query.jsp" method="post">
+        <input type="hidden" name="Tnum" value="<%=tnum%>">
         <div class="txt_field">
             <input type="text" name="phone_number" required>
             <span></span>
