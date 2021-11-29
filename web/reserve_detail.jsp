@@ -5,11 +5,25 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>COMP322: Databases</title>
+    <title>reserve detail</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/Constant/css/detail_style.css">
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo"><a href="#">KertFlight</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#">BOOK</a></li>
+                <li><a href="#">AIRPORT</a></li>
+                <li><a href="#">IN-FLIGHT</a></li>
+            </ul>
+        </div>
+    </div>
 </head>
 <body>
-<h4>info</h4>
+
+
+
 <%
     String serverIP = "155.230.52.58";
     String strSID = "xe";
@@ -35,11 +49,11 @@
     }
 
 %>
-<ul><li>티켓 상세 정보<span style="color:#6A6A6A">(Ticket information)</span></li></ul>
+<h2><span style="color:#FFFFFF">티켓 상세 정보</span><span style="color:#8C8C8C">(Ticket information)</span></h2>
 <%
     String query = "select ticket_number, price, tfnum, tcpassport, teid, tpid, tsid " +
             "from (ticket t join flight f on t.tfnum = f.flight_number) join customer c on t.tcpassport = c.cpassport_number " +
-            "where t.ticket_number = '" + request.getParameter("ticketNumber") + "' " +
+            "where t.ticket_number = '" + request.getParameter("TicketNumber") + "' " +
             "and c.cfirst_name = '" + request.getParameter("passengerFirstName") + "' " +
             "and c.clast_name = '" + request.getParameter("passengerLastName") + "' " +
             "and trunc(departure_time) = TO_DATE('" + request.getParameter("departureDate") + "', 'YYYY-MM-DD')";
@@ -75,7 +89,7 @@
 <td><button class="btn" onclick=location.href="refund.jsp?Tnum=<%=Tnum%>">예약 취소</button></td>
 </tr>
 </table>
-<ul><li>비행 정보<span style="color:#6A6A6A">(Flight information)</span></li></ul>
+<h2><span style="color:#FFFFFF">비행 정보</span><span style="color:#8C8C8C">(Flight information)</span></h2>
 <%
     query = "select * from flight where flight_number='"+Fnum+"' ";
     pstmt = conn.prepareStatement(query);
@@ -103,7 +117,7 @@
     out.println("</tr>");
     out.println("</table>");
 %>
-<ul><li>승무원 정보<span style="color:#6A6A6A">(Crew information)</span></li></ul>
+<h2><span style="color:#FFFFFF">승무원 정보</span><span style="color:#8C8C8C">(Crew information)</span></h2>
 <%
     query = "select  Role, count (*) " +
             "from  FLIGHT, RUN " +
