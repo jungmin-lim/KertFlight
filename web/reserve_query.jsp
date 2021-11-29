@@ -47,7 +47,7 @@
     }
 
 
-    query = "insert into customer values ('"+ request.getParameter("Passportnumber") + "', '"+ request.getParameter("First_name") + "', '"+ request.getParameter("Last_name") + "', '"+ request.getParameter("Country")+ "', '"+ request.getParameter("Birth_date") + "', '"+ request.getParameter("Gender") + "', '"+request.getParameter("phone_number")+"') " ;
+    query = "insert into customer values ('"+ request.getParameter("Passportnumber") + "', '"+ request.getParameter("First_name") + "', '"+ request.getParameter("Last_name") + "', '"+ request.getParameter("Country")+ "', TO_DATE('"+ request.getParameter("Birth_date") + "','yyyy-MM-dd'), '"+ request.getParameter("Gender") + "', '"+request.getParameter("phone_number")+"') " ;
     pstmt = conn.prepareStatement(query);
 
     try {
