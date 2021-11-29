@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page language="java" import="java.text.*, java.sql.*" %>
-<%@ page import="java.util.ArrayList" %>
 
 <html>
 <head>
@@ -16,8 +15,6 @@
     String pass = "kertorkr";
     String url = "jdbc:oracle:thin:@" + serverIP + ":" + portNum + ":" + strSID;
     Connection conn = null;
-    String Fnum = "";
-    String Tnum = "";
     PreparedStatement pstmt;
     ResultSet rs=null;
     try {
