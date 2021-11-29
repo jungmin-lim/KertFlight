@@ -6,9 +6,20 @@
     <meta charset="UTF-8">
     <title>COMP322: Databases</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/Constant/css/detail_style.css">
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo"><a href="#">KertFlight</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#">BOOK</a></li>
+                <li><a href="#">AIRPORT</a></li>
+                <li><a href="#">IN-FLIGHT</a></li>
+            </ul>
+        </div>
+    </div>
 </head>
 <body>
-<h4>info</h4>
 <%
     String serverIP = "155.230.52.58";
     String strSID = "xe";
@@ -36,7 +47,7 @@
     }
 
 %>
-<ul><li>비행 현황판<span style="color:#6A6A6A">(Currently flying planes)</span></li></ul>
+<h2><span style="color:#FFFFFF">비행 현황판</span><span style="color:#8C8C8C">(Currently flying planes)</span></h2>
 <%
     String query = "select flight_number, departure_time, arrival_time, fpid, departure_airport, arrival_airport " +
             "from flight " +
