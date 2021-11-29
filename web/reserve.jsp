@@ -10,12 +10,12 @@
 <head>
     <meta charset="utf-8">
     <title>Ticket reservation</title>
-    <link rel="stylesheet" href="reserve_style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Constant/css/reserve_style.css">
 </head>
 <body>
 <div class="center">
     <h1>티켓예매<span style="color:#6A6A6A">(Reserve ticket)</span></h1>
-    <form action="reserve_query.jsp?TicketNumber="<%=request.getParameter("TicketNumber")%> method="post">
+    <form action="reserve_query.jsp?Tnum="<%=request.getParameter("TicketNumber")%> method="post">
         <div class="txt_field">
             <input type="text" name="phone_number" required>
             <span></span>
