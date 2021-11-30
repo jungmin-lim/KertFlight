@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/Constant/css/detail_style.css">
     <div class="navbar">
         <div class="icon">
-            <h2 class="logo"><a href="#">KertFlight</h2>
+            <h2 class="logo"><a href="${pageContext.request.contextPath}/main.jsp">KertFlight</h2>
         </div>
         <div class="menu">
             <ul>
