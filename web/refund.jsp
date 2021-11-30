@@ -32,8 +32,7 @@
     }
     String query = "SELECT * " +
             "FROM TICKET " +
-            "WHERE ticket_number = '" + request.getParameter("Tnum") +"' "+
-            "for update";
+            "WHERE ticket_number = '" + request.getParameter("Tnum") +"' ";
     pstmt = conn.prepareStatement(query);
 
     try {
