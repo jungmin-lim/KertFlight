@@ -19,7 +19,7 @@ body {
     font-size: 0.9rem;
     letter-spacing: 0.1rem;
     font-weight: 900;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(background.jpg) no-repeat;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(../image/background.jpg) no-repeat;
 }
 
 table {

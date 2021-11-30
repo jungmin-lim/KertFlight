@@ -7,7 +7,7 @@
 body{
     margin: 0;
     padding: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(background.jpg) no-repeat;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(../image/background.jpg) no-repeat;
     background-position: center;
     height: 100vh;
     overflow: hidden;
