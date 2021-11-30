@@ -68,7 +68,7 @@
     }
 
 
-    query = "update ticket set tcpassport = ' "+request.getParameter("Passportnumber")+" ' where Ticket_number=' "+request.getParameter("Tnum")+" '" ;
+    query = "update ticket set tcpassport = '"+request.getParameter("Passportnumber")+"' where Ticket_number='"+request.getParameter("Tnum")+"'" ;
     try {
         rs = pstmt.executeQuery(query );
         rs = pstmt.executeQuery("commit");
