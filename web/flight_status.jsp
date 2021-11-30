@@ -12,9 +12,9 @@
         </div>
         <div class="menu">
             <ul>
-                <li><a href="#">BOOK</a></li>
-                <li><a href="#">AIRPORT</a></li>
-                <li><a href="#">IN-FLIGHT</a></li>
+                <li><a href="${pageContext.request.contextPath}/flight.jsp">BOOK</a></li>
+                <li><a href="${pageContext.request.contextPath}/reserve_lookup.jsp">TICKETS</a></li>
+                <li><a href="${pageContext.request.contextPath}/flight_status.jsp">IN-FLIGHT</a></li>
             </ul>
         </div>
     </div>
@@ -69,20 +69,21 @@
     out.println("<th>도착 공항<br><span style=\"color:#6A6A6A\">(Arrival airport)</span></th>");
 
     out.println("</thead>");
-    out.println("<tr>");
+
     while (rs.next()) {
+        out.println("<tr>");
         out.println("<td>" + rs.getString(1) + "</td>");
         out.println("<td>" + rs.getDate(2) + "</td>");
         out.println("<td>" + rs.getDate(3) + "</td>");
         out.println("<td>" + rs.getString(4) + "</td>");
         out.println("<td>" + rs.getString(5) + "</td>");
         out.println("<td>" + rs.getString(6) + "</td>");
+        out.println("</tr>");
     }
     rs.close();
     pstmt.close();
     conn.close();
 %>
-</tr>
 </table>
 </body>
 </html>
