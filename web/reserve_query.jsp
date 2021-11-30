@@ -30,10 +30,12 @@
     } catch (SQLException e) {
         e.printStackTrace();
     }
+    conn.setTransactionIsolation(java.sql.Connection.TRANSACTION_READ_COMMITTED);
+    conn.setAutoCommit(false);
     String query = "SELECT * " +
             "FROM TICKET " +
             "WHERE ticket_number = '" + request.getParameter("Tnum") +"' "+
-            "for update";
+            "and tcpassport is null ";
     pstmt = conn.prepareStatement(query);
 
     try {
