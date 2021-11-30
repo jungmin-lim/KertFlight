@@ -66,7 +66,7 @@
                     String deptAirport = request.getParameter("deptA");
                     String arrivAirport = request.getParameter("arrivA");
                     String deptDate = request.getParameter("deptdate");
-                    Boolean flag = false;
+                    boolean flag = false;
 
                     if((deptAirport == null) || (arrivAirport == null) || (deptDate == null)) {
                         flag = false;

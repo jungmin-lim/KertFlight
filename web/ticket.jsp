@@ -62,7 +62,7 @@
                 </thead>
                 <%
                     String flightNumber = request.getParameter("flightNumber");
-                    Boolean flag = false;
+                    boolean flag = false;
 
                     if(flightNumber == null) {
                         flag = false;
