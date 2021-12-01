@@ -42,6 +42,7 @@
         rs = pstmt.executeQuery();
         if(!rs.next()) {
             System.err.println("Ticket info match fails");
+            System.exit(1);
         }
     } catch (SQLException exception) {
         exception.printStackTrace();
