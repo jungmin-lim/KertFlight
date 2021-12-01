@@ -45,7 +45,7 @@
             rs.close();
             pstmt.close();
             conn.close();
-            response.sendRedirect("/main.jsp");
+            pageContext.forward("/main.jsp");
         }
     } catch (SQLException exception) {
         exception.printStackTrace();
