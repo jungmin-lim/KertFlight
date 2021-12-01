@@ -42,13 +42,17 @@
         rs = pstmt.executeQuery();
         if(!rs.next()) {
             System.err.println("Ticket info match fails");
-            System.exit(1);
+            rs.close();
+            pstmt.close();
+            conn.close();
+            response.sendRedirect("/main.jsp");
         }
     } catch (SQLException exception) {
         exception.printStackTrace();
         System.exit(1);
     }
-
+%>
+<%
     query = "SELECT * " +
             "FROM CUSTOMER " +
             "WHERE cpassport_number = '" + request.getParameter("Passportnumber") +"' ";
