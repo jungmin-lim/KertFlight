@@ -13,9 +13,9 @@
         </div>
         <div class="menu">
             <ul>
-                <li><a href="#">BOOK</a></li>
-                <li><a href="#">AIRPORT</a></li>
-                <li><a href="#">IN-FLIGHT</a></li>
+                <li><a href="${pageContext.request.contextPath}/flight.jsp">BOOK</a></li>
+                <li><a href="${pageContext.request.contextPath}/reserve_lookup.jsp">TICKETS</a></li>
+                <li><a href="${pageContext.request.contextPath}/flight_status.jsp">IN-FLIGHT</a></li>
             </ul>
         </div>
     </div>
