@@ -45,7 +45,6 @@
             rs.close();
             pstmt.close();
             conn.close();
-            out.println("<script>alert('이미 예약된 티켓입니다.');</script>");
             pageContext.forward("/main.jsp");
         }
     } catch (SQLException exception) {
