@@ -57,7 +57,7 @@
     rs.close();
     pstmt.close();
     conn.close();
-    response.sendRedirect("/KertAirline/reserve_lookup.jsp");
+    response.sendRedirect("/main.jsp");
 %>
 </body>
 </html>
