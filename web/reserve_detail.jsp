@@ -53,7 +53,7 @@
 <%
     String query = "select ticket_number, price, tfnum, tcpassport, teid, tpid, tsid " +
             "from (ticket t join flight f on t.tfnum = f.flight_number) join customer c on t.tcpassport = c.cpassport_number " +
-            "where t.ticket_number = '" + request.getParameter("TicketNumber") + "' " +
+            "where t.ticket_number = '" + request.getParameter("ticketNumber") + "' " +
             "and c.cfirst_name = '" + request.getParameter("passengerFirstName") + "' " +
             "and c.clast_name = '" + request.getParameter("passengerLastName") + "' " +
             "and trunc(departure_time) = TO_DATE('" + request.getParameter("departureDate") + "', 'YYYY-MM-DD')";
