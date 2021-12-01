@@ -84,9 +84,9 @@
         out.println("<td>" + rs.getString(5) + "</td>");
         out.println("<td>" + rs.getString(6) + "</td>");
         out.println("<td>" + rs.getString(7) + "</td>");
+        out.println("<td><button class=\"btn\" onclick=location.href=\"refund.jsp?Tnum=" +Tnum+"\">예약 취소</button></td>");
     }
 %>
-<td><button class="btn" onclick=location.href="refund.jsp?Tnum=<%=Tnum%>">예약 취소</button></td>
 </tr>
 </table>
 <h2><span style="color:#FFFFFF">비행 정보</span><span style="color:#8C8C8C">(Flight information)</span></h2>
